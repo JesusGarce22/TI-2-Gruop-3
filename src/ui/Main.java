@@ -2,16 +2,38 @@ package ui;
 
 import java.util.Scanner;
 
+import Model.Game;
+
 public class Main {
 	public static Scanner sn= new Scanner(System.in);
-	public static void mani(String[]args) {
+	public static void main(String[]args) {
 
 		int option=menu();
 		
 		switch(option) {
 		case 1:
+			String[] prices= new String[5];
 			System.out.println("Please enter the information necesary for play");
 			String dates=sn.nextLine();
+			
+			String[] parts = dates.split(" ");
+
+			int fila=Integer.parseInt(parts[0]);
+			int columna=Integer.parseInt(parts[1]);
+			int snakes=Integer.parseInt(parts[2]);
+			int ladders=Integer.parseInt(parts[3]);
+			String idPlayers=parts[4];
+			
+			String[] ids = idPlayers.split("");
+			int numPlayers=ids.length;
+			
+			Game n =new Game(fila,columna);
+			
+			n.starGame(numPlayers, ids);
+			
+
+			
+			
 			break;
 		case 2:
 			break;
@@ -33,7 +55,17 @@ public class Main {
 		System.out.println("-------------------------------------------------------------------------------------------");
 		System.out.println("Choose the option of your liking");
 		menu=sn.nextInt();
+		sn.nextLine();
 		
 		return menu;
+	}
+	
+	public void movePlayer() {
+		String enterAction=sn.nextLine();
+		if(enterAction.equals("")) {
+			
+		}
+		
+		
 	}
 }

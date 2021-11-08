@@ -4,8 +4,12 @@ public class Player {
 	
 	private int position;
 	private String character;
-	private Player next;
 	
+	public Player(int position, String character) {
+		this.position = position;
+		this.character = character;
+	} 
+
 	public int getPosition() {
 		return position;
 	}
@@ -21,19 +25,13 @@ public class Player {
 	public void setCharacter(String character) {
 		this.character = character;
 	}
-
-	public Player getNext() {
-		return next;
+	
+	public void TablePosition() {
+		
+		System.out.println(character+" "+position);
 	}
 
-	public void setNext(Player next) {
-		this.next = next;
-	}
 
-	public Player(int position, String character) {
-		this.position = position;
-		this.character = character;
-	} 
-	
-	
+
+
 }

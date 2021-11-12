@@ -30,11 +30,8 @@ public class Main {
 			Game n =new Game(fila,columna);
 			
 			n.starGame(numPlayers, ids);
-			
-
-			
-			
 			break;
+			
 		case 2:
 			break;
 		case 3:

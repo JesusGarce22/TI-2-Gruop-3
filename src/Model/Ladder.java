@@ -6,12 +6,14 @@ public class Ladder {
 	private int LastPosition;
 	private String id;
 	private Player nextLadder;
-	public Ladder(int firstPosition, int lastPosition, String id) {
-		super();
+	
+	public Ladder(int firstPosition, int lastPosition, String id,Player lader) {
 		FirstPosition = firstPosition;
 		LastPosition = lastPosition;
 		this.id = id;
+		nextLadder = lader;
 	}
+	
 	public int getFirstPosition() {
 		return FirstPosition;
 	}

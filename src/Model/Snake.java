@@ -6,11 +6,12 @@ public class Snake {
 	private int LastPosition;
 	private String id;
 	private Player nextSnake;
-	public Snake(int firstPosition, int lastPosition, String id) {
-		super();
+	
+	public Snake(int firstPosition, int lastPosition, String id,Player p) {
 		FirstPosition = firstPosition;
 		LastPosition = lastPosition;
 		this.id = id;
+		nextSnake=p;
 	}
 	public int getFirstPosition() {
 		return FirstPosition;

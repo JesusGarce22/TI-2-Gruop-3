@@ -3,7 +3,8 @@ package Model;
 public class Node
 {
 	// Valores
-
+	private Snake snake;
+	private Ladder ladder;
 	private int position;
 
 	// Referencias
@@ -45,4 +46,34 @@ public class Node
 	}
 
 
+	public Snake getSnake() {
+		return snake;
+	}
+
+
+	public void setSnake(Snake snake) {
+		this.snake = snake;
+	}
+
+
+	public Ladder getLadder() {
+		return ladder;
+	}
+
+
+	public void setLadder(Ladder ladder) {
+		this.ladder = ladder;
+	}
+
+
+	public int getPosition() {
+		return position;
+	}
+
+
+	public void setPosition(int position) {
+		this.position = position;
+	}
+
+	
 }

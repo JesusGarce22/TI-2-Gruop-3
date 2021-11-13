@@ -29,7 +29,7 @@ public class Main {
 			
 			Game n =new Game(fila,columna);
 			
-			n.starGame(numPlayers, ids);
+			n.starGame(numPlayers, ids,snakes,ladders);
 			
 
 			

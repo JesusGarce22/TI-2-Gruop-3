@@ -47,18 +47,37 @@ public class Game
 
 		System.out.print(current.toString());
 		for(int i = size-1 ; i > 0 ; i--)
+		
+		for(int i = 0 ; i < filas ; i++)
 		{
-			current = current.getPrev();
-			if(i % columnas == 0)
-			{
-				System.out.println();
-				System.out.print(current.toString());
-			}
-			else
-			{
-				System.out.print(current.toString());
+			if(i == 0) {
+				current = printRow(last, true);
+			} else if(i % 2 == 0) {
+				current = printRow(current, true);
+			} else if(i % 2 != 0) {
+				current = printRow(current, false);
 			}
 		}
+	}
+	
+	public Node printRow(Node current, boolean toggle) {
+		String p = "";
+		
+		if(toggle) {
+			for(int i = 0; i < columnas; i++) {
+				p = p + current.toString();
+				current = current.getPrev();
+			}
+		} else {
+			for(int i = 0; i < columnas; i++) {
+				p = current.toString() + p;
+				current = current.getPrev();
+			}
+		}
+		
+		System.out.println(p);
+		
+		return current;
 	}
 
 	public void starGame(int numPlayers,String[] ids,int snake,int ladder) {

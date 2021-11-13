@@ -29,12 +29,17 @@ public class Main {
 			
 			Game n =new Game(fila,columna);
 			
+<<<<<<< HEAD
 			n.starGame(numPlayers, ids,snakes,ladders);
 			
 
 			
 			
+=======
+			n.starGame(numPlayers, ids);
+>>>>>>> 20cc0687854e067b781c713164d2014fbaa9aff4
 			break;
+			
 		case 2:
 			break;
 		case 3:

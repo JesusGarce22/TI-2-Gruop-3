@@ -46,7 +46,7 @@ public class Game
 		Node current = last;
 
 		System.out.print(current.toString());
-		for(int i = size-1 ; i > 0 ; i--)
+		
 		
 		for(int i = 0 ; i < filas ; i++)
 		{
@@ -111,25 +111,6 @@ public class Game
 		int move=1+(int)(6*Math.random());
 		return move;
 	}
-
-	/* SI NO NECESITAN ALGO DE ESTE METODO LO PUEDEN BORRAR
-	public void simulatorGame(Player[] players,int n) {
-
-		if(players[n]!=null && players[n].getPosition()>=size) {
-			System.out.println(players[n].getCharacter()+" is the winner");
-			return;
-		}
-
-		int move=(int)(Math.random()*6+1);;
-
-		players[n].setPosition(players[n].getPosition()+move);
-
-		n++;
-		if(n==players.length) {
-			n=0;
-		}
-		simulatorGame(players,n);
-	}*/
 
 	public void createSnake(int snake) {
 

@@ -30,6 +30,7 @@ public class Main {
 			Game n =new Game(fila,columna);
 			
 			n.starGame(numPlayers, ids,snakes,ladders);
+			play();
 			
 			break;
 			
@@ -58,5 +59,19 @@ public class Main {
 		return menu;
 	}
 	
-
+	public static void play() {
+		 
+		String aux=sn.nextLine();
+		
+		if(aux.equals("")) {
+			//llamar metodo para que los jugadores se muevan
+		}else if(aux.equalsIgnoreCase("menu")) {
+			menu();
+			return;
+		}else if(aux.equalsIgnoreCase("num")) {
+			//mostrar tablero
+		}
+		
+		play();
+	}
 }

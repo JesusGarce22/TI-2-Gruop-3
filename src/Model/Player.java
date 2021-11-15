@@ -26,7 +26,7 @@ public class Player {
 		this.character = character;
 	}
 	
-	public void TablePosition() {
+	public void boardPosition() {
 		
 		System.out.println(character+" "+position);
 	}

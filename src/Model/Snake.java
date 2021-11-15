@@ -34,8 +34,12 @@ public class Snake {
 	public Player getPlayer() {
 		return player;
 	}
-	public void setNextSnake(Player player) {
+	public void setPlayer(Player player) {
 		this.player = player;
 	}
-	
+	public void move(Player p) {
+		if(this.getPlayer()==p && p.getPosition()==LastPosition) {
+			p.setPosition(FirstPosition);
+		}
+	}
 }

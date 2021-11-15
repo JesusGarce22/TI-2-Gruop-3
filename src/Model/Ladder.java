@@ -5,13 +5,13 @@ public class Ladder {
 	private int FirstPosition;
 	private int LastPosition;
 	private String id;
-	private Player nextLadder;
+	private Player player;
 	
 	public Ladder(int firstPosition, int lastPosition, String id,Player lader) {
 		FirstPosition = firstPosition;
 		LastPosition = lastPosition;
 		this.id = id;
-		nextLadder = lader;
+		player = lader;
 	}
 	
 	public int getFirstPosition() {
@@ -32,12 +32,16 @@ public class Ladder {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public Player getNextLadder() {
-		return nextLadder;
+	public Player getPlayer() {
+		return player;
 	}
-	public void setNextLadder(Player nextLadder) {
-		this.nextLadder = nextLadder;
+	public void setPlayer(Player nextLadder) {
+		this.player = nextLadder;
 	}
-	
+	public void move(Player p) {
+		if(this.getPlayer()==p && p.getPosition()==FirstPosition) {
+			p.setPosition(LastPosition);
+		}
+	}
 	
 }

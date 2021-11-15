@@ -46,8 +46,8 @@ public class Game
 		Node current = last;
 
 		System.out.print(current.toString());
-		
-		
+
+
 		for(int i = 0 ; i < filas ; i++)
 		{
 			if(i == 0) {
@@ -59,10 +59,10 @@ public class Game
 			}
 		}
 	}
-	
+
 	public Node printRow(Node current, boolean toggle) {
 		String p = "";
-		
+
 		if(toggle) {
 			for(int i = 0; i < columnas; i++) {
 				p = p + current.toString();
@@ -74,9 +74,9 @@ public class Game
 				current = current.getPrev();
 			}
 		}
-		
+
 		System.out.println(p);
-		
+
 		return current;
 	}
 
@@ -119,7 +119,7 @@ public class Game
 			return;
 		}
 
-		Snake aux = new Snake(0, 0, "A", null);
+		Snake aux = new Snake(0, 0, "S", null);
 		organizarSnakes(aux);
 
 		snake--;
@@ -139,21 +139,21 @@ public class Game
 				return;
 			}
 		}
-
-		//LAMADO RECURSIVO
-		organizarSnakes(snakes);
-
 		Node current = origin;
 
 		while(current.getNext() != null) {
-			if(current.getPosition() == snakes.getFirstPosition()) {
+			if(current.getPosition() == snakes.getFirstPosition() && current.getLadder()==null) {
 				current.setSnake(snakes);
 			}
-			if(current.getPosition() == snakes.getLastPosition()) {
+			if(current.getPosition() == snakes.getLastPosition() && current.getLadder()==null) {
 				current.setSnake(snakes);
 			}
 			current = current.getNext();
 		}
+		//LAMADO RECURSIVO
+		organizarSnakes(snakes);
+
+
 	}
 
 	public void createLadder(int ladder) {
@@ -163,7 +163,7 @@ public class Game
 			return;
 		}
 
-		Ladder aux = new Ladder(0, 0, "E", null);
+		Ladder aux = new Ladder(0, 0, "l", null);
 		organizarLadder(aux);
 
 		ladder--;
@@ -172,7 +172,7 @@ public class Game
 		createLadder(ladder);
 	}
 
-	private void organizarLadder(Ladder ladder) {
+	public void organizarLadder(Ladder ladder) {
 
 		ladder.setFirstPosition(1+(int)(Math.random()*size)) ;
 		ladder.setLastPosition(1+(int)(Math.random()*size)) ;
@@ -184,21 +184,23 @@ public class Game
 			}
 		}
 
-		//LAMADO RECURSIVO
-		organizarLadder(ladder);
-
-		Node current = origin;
+			Node current = origin;
 
 		while(current.getNext() != null) {
-			if(current.getPosition() == ladder.getFirstPosition()) {
+			if(current.getPosition() == ladder.getFirstPosition() && current.getSnake()==null) {
 				current.setLadder(ladder);
 			}
-			if(current.getPosition() == ladder.getLastPosition()) {
+			if(current.getPosition() == ladder.getLastPosition() && current.getSnake()==null) {
 				current.setLadder(ladder);
 			}
 			current = current.getNext();
 		}
 		
+		//LAMADO RECURSIVO
+		organizarLadder(ladder);
+
+	
+
 	}
 }
 

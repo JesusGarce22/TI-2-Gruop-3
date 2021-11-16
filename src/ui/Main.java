@@ -5,7 +5,9 @@ import java.util.Scanner;
 import Model.Game;
 
 public class Main {
+	
 	public static Scanner sn= new Scanner(System.in);
+	
 	public static void main(String[]args) {
 
 		int option=menu();
@@ -37,11 +39,9 @@ public class Main {
 		case 2:
 			break;
 		case 3:
-			System.out.println("has successfully exited the game");
+			System.out.println("has successfully exited the games");
 			break;
 		}
-
-
 	}
 
 	public static int menu() {

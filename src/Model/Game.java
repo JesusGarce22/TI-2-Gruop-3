@@ -2,22 +2,25 @@ package Model;
 
 import java.util.ArrayList;
 
+
 public class Game
 {
 	private Node origin;
 	private Node last;
-
+	private Player[] players;
+	
 	private int filas;
 	private int columnas;
 
 	private int size;
 
-	public Game(int filas, int columnas)
+	public Game(int filas, int columnas,int numPlayers)
 	{
 		this.filas = filas;
 		this.columnas = columnas;
 		size = filas*columnas;
 		origin = createBoard(size);
+		players = new Player[numPlayers];
 	}
 
 	public Node createBoard(int size)
@@ -75,35 +78,71 @@ public class Game
 			}
 		}
 
+		
 		System.out.println(p);
+		
+		
 
 		return current;
 	}
+	
+	public void showBoardWithPlayers() {
+	Node current = origin;
+		
+	if(current.getSnake()!=null || current.getLadder()!=null || current.getPlayer()!=null) {
+		
+		System.out.print(current.getSnake());
+		}
+	
+		if(current.getNext() != null){
+			return;
+		}
+		
+		current = current.getNext();
+		
+		showBoardWithPlayers();
+	}
 
-	public void starGame(int numPlayers,String[] ids,int snake,int ladder) {
-		Player[] players = new Player[numPlayers];
+	public void starGame(String[] ids,int snake,int ladder) {
 
-		for(int i=0;i<numPlayers;i++) {
-			players[i] = new Player(1,ids[i]);
+		for(int i=0;i<players.length;i++) {
+			players[i] = new Player(1,ids[i],0);
 		}
 
 		createSnake(snake);
 		createLadder(ladder);
 	}
 
-	private void avanzar(Player[] players,int n) {
+	public void move(int n) {
 
-		if(n==players.length) {
-
-			return;
-		}
 		int move=Throw();
 
 		players[n].setPosition(players[n].getPosition()+move);
+		players[n].setNumMovimientos(players[n].getNumMovimientos()+1);
+		System.out.println("The Player "+players[n].getCharacter()+" is in the position "+players[n].getPosition());
+		
+		Node current = origin;
+	
+		while(current.getNext() != null) {
 
-		n++;
-
-		avanzar(players,n);
+			if(current.getPosition()==players[n].getPosition()) {
+				current.setPlayer(players[n]);
+			}
+			if(current.getLadder() != null ) {
+				current.getLadder().move(players[n]);
+			}
+			if(current.getSnake() != null ) {
+				current.getSnake().move(players[n]);
+			}
+			if(players[n].getPosition()>=size) {
+				players[n].win();
+				System.exit(0);
+				
+			}
+			
+			current = current.getNext();
+		}
+		
 	}
 
 	//metodo del dado
@@ -198,9 +237,19 @@ public class Game
 		
 		//LAMADO RECURSIVO
 		organizarLadder(ladder);
-
 	
-
 	}
+	
+	public void printTablePosition(int num) {
+		Player pAux[]=getPlayers();
+	
+		pAux[num].tablePositions(pAux,num);
+		
+	}
+
+	public Player[] getPlayers() {
+		return players;
+	}
+
 }
 

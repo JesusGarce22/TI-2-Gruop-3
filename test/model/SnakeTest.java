@@ -33,7 +33,7 @@ class SnakeTest {
 	@Test
 	public void dowhForTheSnake() {
 		setupScenary2();
-		Player p = new Player(20,"+");
+		Player p = new Player(20,"+",0);
 		
 		snake.setPlayer(p);
 		snake.move(p);

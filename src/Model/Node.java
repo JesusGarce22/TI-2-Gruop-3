@@ -6,6 +6,7 @@ public class Node
 	private Snake snake;
 	private Ladder ladder;
 	private int position;
+	private Player player;
 
 	// Referencias
 
@@ -40,7 +41,7 @@ public class Node
 		String msg;
 		int loc = position+1;
 
-		msg = "[" + loc + "]";
+		msg = "[" + loc + " " +  "]";
 
 		return msg;
 	}
@@ -68,6 +69,16 @@ public class Node
 
 	public int getPosition() {
 		return position;
+	}
+
+
+	public Player getPlayer() {
+		return player;
+	}
+
+
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 

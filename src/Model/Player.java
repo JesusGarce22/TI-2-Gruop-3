@@ -28,16 +28,10 @@ public class Player {
 		this.character = character;
 	}
 	
-	public void tablePositions(Player p[],int n) {
+	public void tablePositions() {
 		
-		if(n==p.length) {
-			return;
-		}
+		System.out.println("Position "+character+" "+position );
 		
-		System.out.println("(Position) "+character+" "+position );
-		
-		n++;
-		tablePositions(p, n);
 	}
 
 	public int getNumMovimientos() {

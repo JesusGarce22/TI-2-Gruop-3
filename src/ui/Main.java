@@ -43,6 +43,7 @@ public class Main {
 			int aux=0;
 			
 			n.printTablePosition(aux);
+			
 			break;
 		case 3:
 			System.out.println("has successfully exited the games");

@@ -241,9 +241,14 @@ public class Game
 	}
 	
 	public void printTablePosition(int num) {
-		Player pAux[]=getPlayers();
-	
-		pAux[num].tablePositions(pAux,num);
+		if(num==players.length) {
+			return;
+		}
+		
+		players[num].tablePositions();
+		
+		num++;
+		printTablePosition(num++);
 		
 	}
 
